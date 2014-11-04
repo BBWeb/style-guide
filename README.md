@@ -1,4 +1,4 @@
-# Lever JavaScript Style Guide
+# Entize JavaScript Style Guide
 
 ## Table of contents
 
@@ -191,30 +191,36 @@ End all statements with semicolons.
 
 ### Commas
 
-Use leading commas.
+Use leading commas with a single tab indentation before the comma when declaring arrays or objects.
 
 ``` javascript
 var names = [
-  'Judy'
-, 'Walt'
-, 'Ben'
-, 'Susan'
-, 'Kim'
+    'Judy'
+  , 'Walt'
+  , 'Ben'
+  , 'Susan'
+  , 'Kim'
 ];
 ```
 
 ### Variable declarations
 
-Use one `var` for each variable declaration, and declare it where the variable is first used in the function. This makes it easier to refactor code and make sure that each variable is properly declared as local.
+Here I'm a little conflicted. What do you guys think. Should we:
 
-When initializing the same variable in independent sections, redeclare it in each section. This is especially desired for loop iterators.
+1. Define all variables at the top of a function/file with leading commas and a semicolon indented one tab further (See (1) below).
+2. Or use one `var` for each variable declaration, and declare it where the variable is first used in the function. Lever argues that this:
+  - Makes it easier to refactor code and make sure that each variable is properly declared as local.
+  - And that when initializing the same variable in independent sections, one should redeclare it in each section. This is especially desired for loop iterators.
 
 ``` javascript
-// No
+// (1) Like this:
 var keys = ['foo', 'bar']
   , values = [23, 42]
   , object = {}
-  , i, len, key;
+  , len
+  , key
+  , i
+    ;
 
 for (i = values.length; i--;) {
   values[i] = values[i] * 2;
@@ -225,7 +231,7 @@ for (i = 0, len = values.length; i < len; i++) {
   object[key] = values[i];
 }
 
-// Yes
+// (2) Or this:
 var keys = ['foo', 'bar'];
 var values = [23, 42];
 
@@ -482,8 +488,10 @@ function isPercentage(val) {
 
 ## Loops and comprehensions
 
+**Lever's suggestions on loops:**
 Prefer `for` loops and not Array#forEach in cases where a closure wrapper is not needed.
 
+**I kind of like the cleanliness of using Array#forEach in many cases but appreciate the simplicity and speed of just always using `for` - What do you guys think?**
 ``` javascript
 // No
 items.forEach(function(item) {
@@ -604,9 +612,9 @@ var util = require('util');
 var TIMEOUT = 1000;
 
 module.exports = {
-  TIMEOUT: TIMEOUT
-, ripen: ripen
-, ripenEach: ripenEach
+    TIMEOUT: TIMEOUT
+  , ripen: ripen
+  , ripenEach: ripenEach
 };
 
 function ripen(fruit, amount) {
