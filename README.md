@@ -205,15 +205,10 @@ var names = [
 
 ### Variable declarations
 
-Here I'm a little conflicted. What do you guys think. Should we:
-
-1. Define all variables at the top of a function/file with leading commas and a semicolon indented one tab further (See (1) below).
-2. Or use one `var` for each variable declaration, and declare it where the variable is first used in the function. Lever argues that this:
-  - Makes it easier to refactor code and make sure that each variable is properly declared as local.
-  - And that when initializing the same variable in independent sections, one should redeclare it in each section. This is especially desired for loop iterators.
+Use one `var` for each variable declaration, and declare it where the variable is first used in the function. This makes it easier to refactor code and make sure that each variable is properly declared as local. Further, when initializing the same variable in independent sections, one should redeclare it in each section. This is especially desired for loop iterators.
 
 ``` javascript
-// (1) Like this:
+// No
 var keys = ['foo', 'bar']
   , values = [23, 42]
   , object = {}
@@ -231,7 +226,7 @@ for (i = 0, len = values.length; i < len; i++) {
   object[key] = values[i];
 }
 
-// (2) Or this:
+// Yes
 var keys = ['foo', 'bar'];
 var values = [23, 42];
 
