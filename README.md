@@ -318,6 +318,7 @@ Annotation types:
   - `HACK`: describe the use of a questionable coding practice
   - `OPTIMIZE`: describe code that is inefficient and may become a bottleneck
   - `REVIEW`: describe code that should be reviewed to confirm implementation
+  - `REFACTOR`: describe code that should be refactored
 
 **[[⬆]](#table-of-contents)**
 
