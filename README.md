@@ -1,4 +1,4 @@
-# Entize JavaScript Style Guide
+# B&B Web JavaScript Style Guide
 
 ## Table of contents
 
